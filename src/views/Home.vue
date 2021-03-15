@@ -1,17 +1,14 @@
 <template lang="pug">
 .home
-  Header
   member-listing
 </template>
 
 <script>
-import Header from "@/components/Header";
 import MemberListing from "@/components/MemberListing";
 
 export default {
   name: "Home",
   components: {
-    Header,
     MemberListing,
   },
 };
@@ -22,5 +19,9 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.home {
+  margin: 0 auto;
+  width: 1080px;
 }
 </style>

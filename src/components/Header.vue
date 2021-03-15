@@ -1,6 +1,6 @@
 <template lang="pug">
 .header
-  img(alt="logo", src="../assets/logo.png")
+  img.logo(alt="logo", src="../assets/logo.png")
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {};
   justify-content: center;
   width: 100%;
   height: 100%;
-  img {
+  .logo {
     padding: 40px;
   }
 }
