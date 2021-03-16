@@ -2,12 +2,15 @@
 #app
   Header
   <router-view />
+  Footer
 </template>
 <script>
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 export default {
   components: {
     Header,
+    Footer,
   },
 };
 </script>
@@ -19,14 +22,4 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
-// #nav {
-//   padding: 30px;
-//   font-family: "Black Ops One", cursive;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-//   }
-// }
 </style>

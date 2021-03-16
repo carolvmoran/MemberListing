@@ -4,7 +4,10 @@
     img.searchImage(src="@/assets/search.svg", alt="alt")
     input.search(v-model="filtro", type="text", placeholder="Buscar Membro")
   .member 
-    .listMember(v-for="item in memberFilter")
+    .listMember(
+      v-for="item in memberFilter",
+      @click="() => { $router.push(`/memberSelected/${item.login}`).catch(() => {}); }"
+    )
       img.profileImage(:src="item.avatar_url")
       .login {{ item.login }}
     .listMember(v-if="!memberFilter.length")
