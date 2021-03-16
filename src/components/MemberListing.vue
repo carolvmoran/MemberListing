@@ -12,9 +12,6 @@
       .login {{ item.login }}
     .listMember(v-if="!memberFilter.length")
       .notFound Nenhum resultado encontrado para esta busca.
-      //- .repositories 13
-      //- .followers 1
-      //- .date 6/12/2020
 </template>
 <script>
 export default {

@@ -4,11 +4,14 @@
     img.profileImageS(:src="item.avatar_url")
     .description
       .name {{ item.name }}
-      .repositories Repositórios: {{ item.public_repos }}
-      .followers Seguidores: {{ item.followers }}
-      .date Ingressou em: {{ item.created_at }}
+      .otherData Seguidores do GitHub: {{ item.followers }}
+      .otherData Repositórios no GitHub: {{ item.public_repos }}
+      .otherData Ingressou no GitHub em: {{ item.created_at | formataData }}
+    router-link(to="/") Voltar
 </template>
 <script>
+import moment from "moment";
+moment.locale("pt-br");
 export default {
   data() {
     return {
@@ -54,6 +57,11 @@ export default {
       ],
     };
   },
+  filters: {
+    formataData(day) {
+      return moment(day).format("lll");
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -77,7 +85,7 @@ export default {
     .profileImageS {
       margin: 40px;
       width: 250px;
-      border-radius: 50%;
+      border-radius: 5px;
       // position: absolute;
     }
     .description {
@@ -89,6 +97,11 @@ export default {
         // width: 400px;
         font-size: 40px;
         font-weight: 600;
+      }
+      .otherData {
+        margin-top: 20px;
+        font-size: 18px;
+        margin-left: 20px;
       }
     }
   }
