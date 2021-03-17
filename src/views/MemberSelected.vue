@@ -7,7 +7,7 @@
       .otherData Seguidores do GitHub: {{ member.followers }}
       .otherData Repositórios no GitHub: {{ member.public_repos }}
       .otherData Ingressou no GitHub em: {{ member.created_at | formataData }}
-    router-link(to="/") Voltar
+  router-link.btnBack(to="/") Voltar
 </template>
 <script>
 import moment from "moment";
@@ -52,16 +52,11 @@ export default {
   margin: 0 auto;
   margin-top: 40px;
   width: 1080px;
-  //   display: flex;
-  //   flex-direction: row;
-  //   align-items: center;
-  //   justify-content: space-around;
-  //   position: relative;
   .memberS {
     width: 100%;
     border: 1px solid #b3d4fc;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -69,7 +64,6 @@ export default {
       margin: 40px;
       width: 250px;
       border-radius: 5px;
-      // position: absolute;
     }
     .description {
       display: flex;
@@ -77,7 +71,6 @@ export default {
       align-items: flex-start;
       justify-content: flex-start;
       .name {
-        // width: 400px;
         font-size: 40px;
         font-weight: 600;
       }
@@ -87,6 +80,13 @@ export default {
         margin-left: 20px;
       }
     }
+  }
+  .btnBack {
+    background-color: #b3d4fc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
   }
 }
 </style>
