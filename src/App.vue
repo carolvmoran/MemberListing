@@ -5,7 +5,9 @@
   Footer
 </template>
 <script>
+// importando Cabeçalho
 import Header from "@/components/Header";
+// importando Rodapé
 import Footer from "@/components/Footer";
 export default {
   components: {

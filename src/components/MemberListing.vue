@@ -1,8 +1,10 @@
 <template lang="pug">
 .memberListing
+  //- Adicionando Campo de Busca
   .searchContainer
     img.searchImage(src="@/assets/search.svg", alt="alt")
     input.search(v-model="filtro", type="text", placeholder="Buscar Membro")
+  //- Lista de Membros
   .member 
     .listMember(
       v-for="item in memberFilter",
@@ -10,26 +12,33 @@
     )
       img.profileImage(:src="item.avatar_url")
       .login {{ item.login }}
+    //- Adicionando V-if para o caso de a busca não ser encontrada
     .listMember(v-if="!memberFilter.length")
       .notFound Nenhum resultado encontrado para esta busca.
 </template>
 <script>
+// Criando a constante axios
 const axios = require("axios");
 export default {
   data() {
     return {
+      // Criando Variável para filtro de busca
       filtro: "",
+      // Criando array de objetos para receber dados da API de Membros
       dados: [],
     };
   },
+  // Metodo mounted para inicializar a função getData que chama a API
   mounted() {
     this.getData();
   },
   methods: {
+    // Criando metodo para chamar a API de membros
     async getData() {
       const response = await axios.get(
         "https://api.github.com/orgs/grupotesseract/public_members"
       );
+      // 200 é mensagem retornada, (tudo certo para enviar dados ad API)
       if (response.status == 200) {
         this.dados = response.data;
       } else {
@@ -38,6 +47,7 @@ export default {
     },
   },
   computed: {
+    // Criando função para filtro de Busca
     memberFilter() {
       if (this.filtro) {
         let exp = new RegExp(this.filtro.trim(), "i");

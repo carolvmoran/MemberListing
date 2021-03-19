@@ -4,6 +4,7 @@
 </template>
 
 <script>
+// Importando Lista de Membros
 import MemberListing from "@/components/MemberListing";
 
 export default {
